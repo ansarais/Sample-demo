@@ -1,3 +1,3 @@
 # Sample-demo
 This is my first sample repository
-<br/> Author:Ansar Sheikh
+<br/> Author:Ansar Isak Sheikh
