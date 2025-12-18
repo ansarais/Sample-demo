@@ -23,15 +23,68 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             line-height: 1.6;
         }
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        nav h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e8f5e8;
+        }
+        main {
+            flex: 1;
+            padding: 0;
+        }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .footer-container p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
         .container {
-            max-width: 600px;
+            max-width: 900px;
             width: 100%;
-            padding: 20px 15px;
+            padding: 40px 20px;
             box-sizing: border-box;
             animation: fadeIn 1s ease-out;
+            margin: 0 auto;
         }
         @keyframes fadeIn {
             from {
@@ -46,8 +99,8 @@
         h1 {
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: var(--primary-color);
+            text-shadow: none;
             margin-bottom: 10px;
             text-align: center;
             letter-spacing: 1px;
@@ -198,33 +251,62 @@
             th, td {
                 padding: 15px 10px;
             }
+            nav ul {
+                gap: 1rem;
+            }
+            nav h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Welcome to the Student Page</h2>
-        <p>This is a page for students.</p>
-        <h2>Student Details</h2>
-        <form>
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>Student Management System</h1>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#students">Students</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
             </div>
-            <div>
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age">
-            </div>
-            <div>
-                <label for="address">Address:</label>
-                <textarea id="address" name="address"></textarea>
-            </div>
-            <input type="submit" value="Submit">
-        </form>
-        <h2>Submitted Student Details</h2>
-        <div id="specificDetails"></div>
-        <div id="display"></div>
-    </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <section id="home">
+                <h1>Welcome to the Student Page</h1>
+                <p>This is a page for managing student information.</p>
+            </section>
+            <section id="students">
+                <h2>Student Details</h2>
+                <form>
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div>
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age">
+                    </div>
+                    <div>
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address"></textarea>
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+                <div id="specificDetails"></div>
+                <div id="display"></div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Student Management System. All rights reserved.</p>
+            <p>Built with HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
     <script>
         let editIndex = null;
         function displayData() {
