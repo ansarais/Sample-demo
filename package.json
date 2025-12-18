@@ -1,0 +1,25 @@
+{
+  "name": "sample-demo",
+  "version": "1.0.0",
+  "description": "This is my first sample repository\r <br/> Author:Ansar Isak Sheikh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansarais/Sample-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ansarais/Sample-demo/issues"
+  },
+  "homepage": "https://github.com/ansarais/Sample-demo#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "sqlite3": "^5.1.7"
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page</title>
+</head>
+<body>
+    <h1>Welcome to the Student Page</h1>
+    <p>This is a page for students.</p>
+    <h2>Student Details</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Submitted Student Details</h2>
+    <div id="display"></div>
+    <script>
+        function displayData() {
+            const data = localStorage.getItem('studentData');
+            if (data) {
+                const student = JSON.parse(data);
+                document.getElementById('display').innerHTML = `
+                    <table border="1">
+                        <tr><th>Field</th><th>Value</th></tr>
+                        <tr><td>Name</td><td>${student.name}</td></tr>
+                        <tr><td>Age</td><td>${student.age}</td></tr>
+                        <tr><td>Address</td><td>${student.address}</td></tr>
+                    </table>
+                `;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', displayData);
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const address = document.getElementById('address').value;
+            const studentData = { name, age, address };
+            localStorage.setItem('studentData', JSON.stringify(studentData));
+            displayData();
+            alert('Student information uploaded successfully!');
+        });
+    </script>
+</body>
+</html>
